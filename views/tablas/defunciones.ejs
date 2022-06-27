@@ -1,0 +1,126 @@
+<%- include("../templates/header", {titulopag:'Defunciones'})%>
+
+    <div id="body_def" class="row">
+
+        <body id="cuerpo_def" class="col-sm-12">
+
+            <div class="row">
+
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    
+                    <form class="form-group" action="/Tablas/resultados" method="post" style="border:1px solid; padding:10px; margin:10px;">
+                        <H2>Busqueda</H2>
+                        <select name="siglo" id="slct-siglo" style="height:30px;">
+                            <option value="ambos">Siglos XVII y XVIII</option>
+                            <option value="XVII">Siglo XVII</option>
+                            <option value="XVIII">Siglo XVIII</option>
+                        </select>
+
+                        <input type="text" name="anio1" placeholder="Desde Año" style="width:20%;" required>
+                        <input type="text" name="anio2" placeholder="Hasta Año" style="width:20%;" required>
+                        <select name="genero" id="slct-genero" style="height:30px;">
+                            <option value="Ambos">Masculino y Femenino</option>
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                        </select>
+                    
+                        <div class="form-check" name="calidades" id="slct-calidad" style="margin-top: 10px;">
+                            <ul>
+                                <li><input type="checkbox" id="CASTIZA" name="calidad" value="CASTIZA">Castiza</input></li>
+                                <li><input type="checkbox" id="ESPAÑOLA" name="calidad" value="ESPAÑOLA">Española</input></li>
+                                <li><input type="checkbox" id="INDIA" name="calidad" value="INDIA">India</input></li>
+                                <li><input type="checkbox" id="SIN_CATEGORIA" name="calidad" value="SIN_CATEGORIA">Sin Categoría</input></li>
+                                <li><input type="checkbox" id="MESTIZA" name="calidad" value="MESTIZA">Mestiza</input></li>
+                                <li><input type="checkbox" id="MORISCA" name="calidad" value="MORISCA">Morisca</input></li>
+                                <li><input type="checkbox" id="MULATA" name="calidad" value="MULATA">Mulata</input></li>
+                                <li><input type="checkbox" id="NEGRA" name="calidad" value="NEGRA">Negra</input></li>
+                                <li><input type="checkbox" id="todas" name="calidad" value="todas" checked="true">Todas</input></li>
+                                
+                            </ul>
+                        </div>
+                        <button name="nombre_tabla" type="submit" value="defunciones" class="btn btn-primary">Buscar</button>
+
+                    </form>
+                    <table class="table table-striped table-bordered table-hover" style="margin: 10px">
+                        <tr>
+                            <th>Siglo</th>
+                            <th>Año</th>
+                            <th>Calidad</th>
+                            <th>Género</th>
+                            <th>Totales</th>
+                        </tr>
+                        <% if(datosConsulta.length !=0){ datosConsulta.forEach((data)=>{ %>
+                            <tr>
+                                <td>
+                                    <%=data.siglo%>
+                                </td>
+                                <td>
+                                    <%=data.anio%>
+                                </td>
+                                <td>
+                                    <%=data.calidad%>
+                                </td>
+                                <td>
+                                    <%=data.genero%>
+                                </td>
+                                <td>
+                                    <%=data.total%>
+                                </td>
+                            </tr>
+                            <% });} else{%>
+                                <tr>
+                                    <td colspan="7">No se encontró la información</td>
+                                </tr>
+                                <%} %>
+                    </table>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+                    <img src="/public/src/castas1.jpg" style=" margin:10px;width:100%;"
+                        alt="Collage de obras con autoría de Miguel Cabrera"></img>
+                    <!--
+              <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+            <script>
+              var xyValues = [
+                { x: 50, y: 7 },
+                { x: 60, y: 8 },
+                { x: 70, y: 8 },
+                { x: 80, y: 9 },
+                { x: 90, y: 9 },
+                { x: 100, y: 9 },
+                { x: 110, y: 10 },
+                { x: 120, y: 11 },
+                { x: 130, y: 14 },
+                { x: 140, y: 14 },
+                { x: 150, y: 15 },
+              ];
+      
+              new Chart("myChart", {
+                type: "scatter",
+                data: {
+                  datasets: [
+                    {
+                      pointRadius: 4,
+                      pointBackgroundColor: "rgb(0,0,255)",
+                      data: xyValues,
+                    },
+                  ],
+                },
+                options: {
+                  legend: { display: false },
+                  scales: {
+                    xAxes: [{ ticks: { min: 40, max: 160 } }],
+                    yAxes: [{ ticks: { min: 6, max: 16 } }],
+                  },
+                },
+              });
+            </script>
+          -->
+
+                </div>
+
+            </div>
+        </body>
+    </div>
+
+    <%- include("../templates/footer")%>

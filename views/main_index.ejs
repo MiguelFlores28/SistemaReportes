@@ -1,0 +1,30 @@
+<%- include("templates/header",{titulopag:'Pagina de inicio'}) %>
+<br>
+<DIV id="body_main" class="row" style="display:flex; justify-content:center;">
+    <body id="cuerpo_main">
+        <br><br><br><br><br>
+        <div class="col-sm-12 col-md-4">
+            <table id="opc_main">
+                <tr>
+                    <td id="opc_bau" style="padding:50px; text-align:center" 
+                    onclick="location.href='/Tablas/bautizos'">Bautizos <br><span class="material-icons">cake</span></td>            
+                </tr>
+                <tr>
+                    <td id="opc_def" style="padding:50px; text-align:center" 
+                    onclick="location.href='/Tablas/defunciones'">Defunciones<br><span class="material-icons">synagogue</span></td>            
+                </tr>
+                <tr>
+                    <td id="opc_mat" style="padding:50px; text-align:center" 
+                    onclick="location.href='/Tablas/matrimionios'">Matrimonios<br><span class="material-icons">wc</span></td>            
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-12 col-md-8" style="display:flex; justify-content:center;">
+            <img src="/public/src/castas1.jpg" style="margin-left:auto; margin-right:auto; padding-top:10px; width:70%;"
+            alt="Collage de obras con autoría de Miguel Cabrera"></img>
+        </div>
+    </body>
+</DIV>
+
+
+<%- include("templates/footer"); %>

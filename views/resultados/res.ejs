@@ -1,0 +1,128 @@
+<%- include("../templates/header", {titulopag:'Resultados'})%>
+<%if(Mensaje){%>
+
+    <h1><%=Mensaje%></h1>
+
+    <%}else{%>
+
+    <div id="body_def" class="row">
+
+        <body id="cuerpo_def" class="col-sm-12" style="padding: 10px">
+        
+            <div class="row">
+
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                    <H2>Busqueda</H2>
+                    <form class="formstyle" action="/Tablas/resultados" method="post">
+                        <select name="siglo" id="slct-siglo">
+                            <option value="ambos">Siglos XVII y XVIII</option>
+                            <option value="XVII">Siglo XVII</option>
+                            <option value="XVIII">Siglo XVIII</option>
+                        </select>
+
+                        <input type="text" name="anio1" placeholder="Desde Año" style="width:20%" required>
+                        <input type="text" name="anio2" placeholder="Hasta Año"  style="width:20%">
+
+                        <div class="" name="calidad" id="slct-calidad">
+                            <input type="checkbox" name="calidad" value="CASTIZA">Castiza</input>
+                            <input type="checkbox" name="calidad" value="ESPAÑOLA">Española</input>
+                            <input type="checkbox" name="calidad" value="INDIA">India</input>
+                            <input type="checkbox" name="calidad" value="SIN_CATEGORIA">Sin Categoría</input>
+                            <input type="checkbox" name="calidad" value="MESTIZA">Mestiza</input>
+                            <input type="checkbox" name="calidad" value="MORISCA">Morisca</input>
+                            <input type="checkbox" name="calidad" value="MULATA">Mulata</input>
+                            <input type="checkbox" name="calidad" value="NEGRA">Negra</input>
+                            <input type="checkbox" name="calidad" value="todas" checked="true">Todas</input>
+                        </div>
+                        <select name="genero" id="slct-genero">
+                            <option value="Ambos">Masculino y Femenino</option>
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                        </select>
+
+                        <button name="nombre_tabla" type="submit" value="defunciones">Enviar</button>
+                    </form>
+                    <table class="table table-striped table-bordered table-hover" style="padding: 10px">
+                        <tr>
+                            <th>Siglo</th>
+                            <th>Año</th>
+                            <th>Calidad</th>
+                            <th>Género</th>
+                            <th>Totales</th>
+                        </tr>
+                        <% if(datosConsulta.length !=0){ datosConsulta.forEach((data)=>{ %>
+                            <tr>
+                                <td>
+                                    <%=data.siglo%>
+                                </td>
+                                <td>
+                                    <%=data.anio%>
+                                </td>
+                                <td>
+                                    <%=data.calidad%>
+                                </td>
+                                <td>
+                                    <%=data.genero%>
+                                </td>
+                                <td>
+                                    <%=data.total%>
+                                </td>
+                            </tr>
+                            <% });} else{%>
+                                <tr>
+                                    <td colspan="7">No se encontró la información</td>
+                                </tr>
+                                <%} %>
+                    </table>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-8 " style="border: 1px solid;">
+                    <img src="/public/src/castas1.jpg" style="padding-top:10px; width:100%;"
+                        alt="Collage de obras con autoría de Miguel Cabrera"></img>
+                    <!--
+              <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+            <script>
+              var xyValues = [
+                { x: 50, y: 7 },
+                { x: 60, y: 8 },
+                { x: 70, y: 8 },
+                { x: 80, y: 9 },
+                { x: 90, y: 9 },
+                { x: 100, y: 9 },
+                { x: 110, y: 10 },
+                { x: 120, y: 11 },
+                { x: 130, y: 14 },
+                { x: 140, y: 14 },
+                { x: 150, y: 15 },
+              ];
+      
+              new Chart("myChart", {
+                type: "scatter",
+                data: {
+                  datasets: [
+                    {
+                      pointRadius: 4,
+                      pointBackgroundColor: "rgb(0,0,255)",
+                      data: xyValues,
+                    },
+                  ],
+                },
+                options: {
+                  legend: { display: false },
+                  scales: {
+                    xAxes: [{ ticks: { min: 40, max: 160 } }],
+                    yAxes: [{ ticks: { min: 6, max: 16 } }],
+                  },
+                },
+              });
+            </script>
+          -->
+
+                </div>
+
+            </div>
+        </body>
+    </div>
+
+    <%}%>
+<%- include("../templates/footer")%>
