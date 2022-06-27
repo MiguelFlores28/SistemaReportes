@@ -1,0 +1,5 @@
+#Ignore csv
+/csv
+
+#Ignore bdscript
+BDScript.sql
