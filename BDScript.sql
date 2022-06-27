@@ -5,6 +5,7 @@ CREATE TABLE bautizos (siglo VARCHAR(10), anio INT, calidad VARCHAR(100), genero
 CREATE TABLE defunciones (siglo VARCHAR(10), anio INT, calidad VARCHAR(100), genero CHAR(1), total INT);
 CREATE TABLE matrimonios (siglo VARCHAR(10), anio INT, etnia_m VARCHAR(100), etnia_f VARCHAR(100), total INT);
 
+/*Testing*/
 /*
 LOAD DATA INFILE
 'S:/temp/PP/SistemaReportes/csv/bau.csv'
