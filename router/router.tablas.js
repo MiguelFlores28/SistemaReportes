@@ -11,12 +11,14 @@ router.get('/bautizos', async(req, res, next) => {
 });
 
 router.get('/defunciones', async(req, res, next) => {
-    var sql = "SELECT * FROM defunciones;"
-    conn.query(sql, (err, data, fields)=>{
+    var sql = "SELECT * FROM defunciones; SELECT SUM(total) AS Tot FROM defunciones"
+    conn.query(sql,[1, 2], (err, data, fields)=>{
         if(err) throw err;
         else{
-            console.log("Resultado "+ JSON.stringify(data));
-            res.render('./tablas/defunciones', {titulopag: "Defunciones", datosConsulta:data});
+            console.log("Resultado "+ JSON.stringify(data[0]));
+            console.log("///////////////////////////////////////////////////////////////////////////////")
+            console.log("Resultado "+ JSON.stringify(data[1]));
+            res.render('./tablas/defunciones', {titulopag: "Defunciones", datosConsulta1:data[0], datosConsulta2:data[1]});
         }
     });
 });

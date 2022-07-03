@@ -2,6 +2,7 @@ var mysql = require('mysql');
 
 //Definición de la conexión con MySQL
 var dbconn = mysql.createConnection({
+    multipleStatements: true,
     host: 'localhost',
     user: 'root',
     password: 'mafl2000',

@@ -13,6 +13,12 @@ body{
 h1{
   font-size:4rem;
 }
+h2{
+  font-size:2rem;
+}
+button{
+  font-size:3rem;
+}
 
 /*Cabecera*/
 #cabecera {
@@ -20,6 +26,8 @@ h1{
   border: 1px solid;
   background-color: #212121;
   color: #ffffff;
+  margin: 10px;
+  padding: 10px;
 }
 
 li {
