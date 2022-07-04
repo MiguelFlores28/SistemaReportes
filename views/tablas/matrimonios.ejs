@@ -1,0 +1,138 @@
+<%- include("../templates/header", {titulopag:'Matrimonios'})%>
+
+    <div id="body_def" class="row">
+
+        <body id="cuerpo_def" class="col-sm-12">
+
+            <div class="row">
+
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    
+                    <form class="form-group" action="/Tablas/resultados" method="post" style="border:1px solid; padding:10px; margin:10px;">
+                        <H2>Busqueda</H2>
+                        <select name="siglo" id="slct-siglo" style="height:30px;">
+                            <option value="ambos">Siglos XVII y XVIII</option>
+                            <option value="XVII">Siglo XVII</option>
+                            <option value="XVIII">Siglo XVIII</option>
+                        </select>
+
+                        <input type="text" name="anio1" placeholder="Desde Año" style="width:20%;" required>
+                        <input type="text" name="anio2" placeholder="Hasta Año" style="width:20%;" required>
+                        <select name="genero_f" id="slct-genero_f" style="height:30px;">
+                            <option value="Todas">Todas las castas femeninas</option>
+                            <option value="CASTIZA">CASTIZA</option>
+                            <option value="ESPAÑOLA">ESPAÑOLA</option>
+                            <option value="FEMENINA SIN CATEG."> FEMENINA SIN CATEGORÍA </option>
+                            <option value="INDIA">INDIA</option>
+                            <option value="MESTIZA">MESTIZA</option>
+                            <option value="MORISCA">MORISCA</option>
+                            <option value="MULATA">MULATA</option>
+                            <option value="NEGRA">NEGRA</option>
+                        </select>
+                        <select name="genero_m" id="slct-genero_m" style="height:30px;">
+                            <option value="Todas">Todas las castas masculinas</option>
+                            <option value="CASTIZO">CASTIZO</option>
+                            <option value="ESPAÑOL">ESPAÑOL</option>
+                            <option value="MASCULINO SIN CATEG."> MASCULINO SIN CATEGORÍA </option>
+                            <option value="INDIO">INDIO</option>
+                            <option value="MESTIZO">MESTIZO</option>
+                            <option value="MORISCO">MORISCO</option>
+                            <option value="MULATO">MULATO</option>
+                            <option value="NEGRO">NEGRO</option>
+                        </select>
+                        
+                        <button name="nombre_tabla" type="submit" value="matrimonios" class="btn btn-primary fontbutton">Buscar</button>
+
+                    </form>
+
+                    <table class="table table-striped table-bordered table-hover" style="margin: 10px">
+                        <tr>
+                            <th>Siglo</th>
+                            <th>Año</th>
+                            <th>Calidad Masculino</th>
+                            <th>Calidad Femenino</th>
+                            <th>Totales</th>
+                        </tr>
+                        <% if(datosConsulta1.length !=0){ datosConsulta1.forEach((data)=>{ %>
+                            <tr>
+                                <td>
+                                    <%=data.siglo%>
+                                </td>
+                                <td>
+                                    <%=data.anio%>
+                                </td>
+                                <td>
+                                    <%=data.etnia_m%>
+                                </td>
+                                <td>
+                                    <%=data.etnia_f%>
+                                </td>
+                                <td>
+                                    <%=data.total%>
+                                </td>
+                            </tr>
+                            <% });} else{%>
+                                <tr>
+                                    <td colspan="7">No se encontró la información</td>
+                                </tr>
+                                <%} %>
+                    </table>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+                    <p> La tabla simplificada de defunciones registra un total de <% if(datosConsulta2.length !=0) { datosConsulta2.forEach((data)=>{%>
+                         <%=data.Tot%>
+                        <% });} else{%>
+                            
+                                <p colspan="7">No se encontró la información</p>
+                            
+                            <%} %> matrimonios en un periodo comprendido desde el siglo XVII al siglo XVIII</p>
+                    
+                    <img src="/public/src/castas1.jpg" style=" margin:10px;width:100%;"
+                        alt="Collage de obras con autoría de Miguel Cabrera"></img>
+                    <!--
+              <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+            <script>
+              var xyValues = [
+                { x: 50, y: 7 },
+                { x: 60, y: 8 },
+                { x: 70, y: 8 },
+                { x: 80, y: 9 },
+                { x: 90, y: 9 },
+                { x: 100, y: 9 },
+                { x: 110, y: 10 },
+                { x: 120, y: 11 },
+                { x: 130, y: 14 },
+                { x: 140, y: 14 },
+                { x: 150, y: 15 },
+              ];
+      
+              new Chart("myChart", {
+                type: "scatter",
+                data: {
+                  datasets: [
+                    {
+                      pointRadius: 4,
+                      pointBackgroundColor: "rgb(0,0,255)",
+                      data: xyValues,
+                    },
+                  ],
+                },
+                options: {
+                  legend: { display: false },
+                  scales: {
+                    xAxes: [{ ticks: { min: 40, max: 160 } }],
+                    yAxes: [{ ticks: { min: 6, max: 16 } }],
+                  },
+                },
+              });
+            </script>
+          -->
+
+                </div>
+
+            </div>
+        </body>
+    </div>
+
+    <%- include("../templates/footer")%>
