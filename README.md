@@ -1,15 +1,16 @@
 # SistemaReportes
 Proyecto Prácticas Profesionales 
-Por Hacer:
+
+## Por Hacer:
 
 1. Sistema de Login
-  a. Administrador de Usuarios
+    1. Administrador de Usuarios
   
 2. Creación de un instructivo
 
 3. Agregar reportes
-  a. Estadísticas
-  b. Gráficos
+    1. Estadísticas
+    2. Gráficos
   
 4. Implementar tablas extendidas
 
