@@ -23,3 +23,7 @@ Proyecto Prácticas Profesionales
 8. Adecuar página de bautizos
 
 9. Adecuar página de matrimonios 
+
+-------
+
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=MiguelFlores28)](https://github.com/MiguelFlores28/github-readme-stats)
