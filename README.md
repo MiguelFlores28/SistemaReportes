@@ -27,3 +27,5 @@ Proyecto Prácticas Profesionales
 -------
 
 [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=MiguelFlores28)](https://github.com/MiguelFlores28/github-readme-stats)
+
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=MiguelFlores28)](https://github.com/MiguelFlores28/github-readme-stats)
