@@ -191,5 +191,53 @@
             </div>
           </body>
         </div>
-          <% break; } }%>
+          <% break; case "origenes": %>
+          <div id="body_def" class="row">
+
+            <body id="cuerpo_def" class="col-sm-12">
+  
+              <div class="row">
+  
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                  <div>
+                    <button type="button" class="btn btn-success fontbutton">Exportar datos a excel</button>
+                  </div>
+            <table class="table table-striped table-bordered table-hover" style="margin: 10px">
+            <tr>
+                <th>Siglo</th>
+                <th>Año</th>
+                <th>Calidad</th>
+                <th>Género</th>
+                <th>Origenes</th>
+                <th>Totales</th>
+            </tr>
+            <% if(datosConsulta.length !=0){ datosConsulta.forEach((data)=>{ %>
+                <tr>
+                    <td>
+                        <%=data.Siglo%>
+                    </td>
+                    <td>
+                        <%=data.Año%>
+                    </td>
+                    <td>
+                        <%=data.Calidad%>
+                    </td>
+                    <td><%=data.Género%>
+                    </td>
+                    <td>
+                        <%=data.OrigenProcedencia%>
+                    </td>
+                    <td>
+                        <%=data.Total%>
+                    </td>
+                </tr>
+                <% });} else{%>
+                    <tr>
+                        <td colspan="7">No se encontró la información</td>
+                    </tr>
+                    <%} %>
+        </table>
+        </div>
+    </div>
+   <%break;}}%>
             <%- include("../templates/footer")%>
