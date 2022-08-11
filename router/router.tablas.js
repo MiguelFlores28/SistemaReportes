@@ -10,7 +10,7 @@ router.get("/bautizos", async (req, res, next) => {
 });
 
 router.get("/origenes", async (req, res, next) => {
-  var sql = "SELECT * FROM origenes; SELECT SUM(total) AS Tot FROM origenes";
+  let sql = "SELECT * FROM origenes; SELECT SUM(total) AS Tot FROM origenes";
   conn.query(sql, [1, 2], (err, data, fields) => {
     if (err) throw err;
     else {
@@ -29,7 +29,7 @@ router.get("/origenes", async (req, res, next) => {
 });
 
 router.get("/defunciones", async (req, res, next) => {
-  var sql =
+  let sql =
     "SELECT * FROM defunciones; SELECT SUM(total) AS Tot FROM defunciones";
   conn.query(sql, [1, 2], (err, data, fields) => {
     if (err) throw err;
@@ -49,7 +49,7 @@ router.get("/defunciones", async (req, res, next) => {
 });
 
 router.get("/matrimonios", async (req, res, next) => {
-  var sql =
+  let sql =
     "SELECT * FROM matrimonios; SELECT SUM(total) AS Tot FROM matrimonios";
   conn.query(sql, [1, 2], (err, data, fields) => {
     if (err) {
@@ -72,9 +72,9 @@ router.get("/matrimonios", async (req, res, next) => {
 //Posteo a resultados
 router.post("/resultados", async (req, res, next) => {
   const body = req.body;
-  var sql = "SELECT * FROM " + body.nombre_tabla + " WHERE ";
+  let sql = "SELECT * FROM " + body.nombre_tabla + " WHERE ";
   let aux="";
-  var msg = "";
+  let msg = "";
   console.log("Llegó");
   console.log(body);
 
@@ -129,7 +129,7 @@ router.post("/resultados", async (req, res, next) => {
 
       if (body.calidad.length != 0 && body.calidad != "todas") {
         sql += "(";
-        for (var i = 0; i < body.calidad.length; i++) {
+        for (let i = 0; i < body.calidad.length; i++) {
           if (i == body.calidad.length - 1) {
             sql += "calidad='" + body.calidad[i] + "') AND";
           } else {
@@ -247,7 +247,7 @@ router.post("/resultados", async (req, res, next) => {
 
       if (body.calidad.length != 0 && body.calidad != "todas") {
         aux += "(";
-        for (var i = 0; i < body.calidad.length; i++) {
+        for (let i = 0; i < body.calidad.length; i++) {
           if (i == body.calidad.length - 1) {
             aux += "calidad='" + body.calidad[i] + "') AND";
           } else {
@@ -258,7 +258,7 @@ router.post("/resultados", async (req, res, next) => {
       }
       if (body.origen.length != 0 && body.origen != "todas") {
         aux += "(";
-        for (var i = 0; i < body.origen.length; i++) {
+        for (let i = 0; i < body.origen.length; i++) {
           if (i == body.origen.length - 1) {
             aux += "origenprocedencia='" + body.origen[i] + "') AND";
           } else {
