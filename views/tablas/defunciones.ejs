@@ -79,9 +79,9 @@
                 </div>
 
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
-                    <p> La tabla simplificada de defunciones registra un total de <% if(datosConsulta2.length !=0) { datosConsulta2.forEach((data)=>{%>
-                         <%=data.Tot%>
-                        <% });} else{%>
+                    <p> La tabla simplificada de defunciones registra un total de <% if(datosConsulta2.length !=0) { %>
+                         <%=datosConsulta2[0].Tot%>
+                        <% } else{%>
                             
                                 <p colspan="7">No se encontró la información</p>
                             
